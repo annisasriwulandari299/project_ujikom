@@ -22,15 +22,8 @@ class Anggaran extends Model
         return $this->belongsTo(Kategori::class, 'kategori_id');
     }
 
-    public function pengeluarans()
+    public function anggaran()
     {
-        return $this->hasMany(Pengeluaran::class, 'anggaran_id');
+        return $this->hasMany(Anggaran::class, 'anggaran_id');
     }
-
-    public function pemasukans()
-    {
-        return $this->hasMany(Pemasukan::class, 'anggaran_id');
-    }
-
-
 }

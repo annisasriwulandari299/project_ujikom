@@ -15,14 +15,10 @@ return new class extends Migration
     {
         Schema::create('anggarans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('kategori_id');
             $table->integer('jumlah');
-            $table->string('nama');
+            $table->string('nama_anggaran');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('kategori_id')->references('id')->on('kategoris')->onDelete('cascade');
         });
     }
 

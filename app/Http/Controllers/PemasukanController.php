@@ -4,40 +4,44 @@ namespace App\Http\Controllers;
 
 use App\Models\Pemasukan;
 use App\Models\Anggaran;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class PemasukanController extends Controller
 {
     public function index()
     {
-        $pemasukan = Pemasukan::all();
+        $pemasukan = Pemasukan::with('anggaran', 'kategori')->get();
         return view('pemasukan.index', compact('pemasukan'));
+
     }
 
     public function create()
     {
         $anggaran = Anggaran::all();
-        return view('pemasukan.create', compact('anggaran'));
+        $kategori = Kategori::all();
+
+        return view('pemasukan.create', compact('anggaran', 'kategori'));
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'jumlah' => 'required|integer',
+            'jumlah_pemasukan' => 'required|integer',
             'deskripsi' => 'nullable',
-            'anggaran_id' => 'required|exists:anggaran,id',
+            'anggaran_id' => 'required|nullable',
+            'kategori_id' => 'required',
         ]);
 
         $pemasukan = new Pemasukan();
-        $pemasukan->jumlah = $request->jumlah;
+        $pemasukan->jumlah_pemasukan = $request->jumlah_pemasukan;
         $pemasukan->deskripsi = $request->deskripsi;
         $pemasukan->anggaran_id = $request->anggaran_id;
-        $pemasukan->save();
+        $pemasukan->kategori_id = $request->kategori_id;
 
-        $anggaran = Anggaran::find($request->id_anggaran);
-        $anggaran->total += $request->jumlah_pemasukan;
+        $anggaran = Anggaran::find($request->anggaran_id);
+        $anggaran->jumlah += $request->jumlah_pemasukan;
         $anggaran->save();
-        Alert::succes('Success', 'data berhasil ditambahkan')->autoClose(2000);
 
         $pemasukan->save();
         return redirect()->route('pemasukan.index')->with('success', 'Data pemasukan berhasil ditambahkan');
@@ -48,28 +52,36 @@ class PemasukanController extends Controller
         $pemasukan = Pemasukan::with('anggaran')->findOrFail($id);
         return view('pemasukan.show', compact('pemasukan'));
     }
-
+        
     public function edit($id)
     {
         $pemasukan = Pemasukan::findOrFail($id);
         $anggaran = Anggaran::all();
-        return view('pemasukan.edit', compact('pemasukan', 'anggaran'));
+        $kategori = Kategori::all();
+
+        return view('pemasukan.edit', compact('pemasukan', 'anggaran', 'kategori'));
     }
 
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'jumlah' => 'required|integer',
-            'deskripsi' => 'nullable',
-            'anggaran_id' => 'required|exists:anggaran,id',
+            'jumlah_pemasukan' => 'required|integer',
+            'deskripsi' => 'nullable|string',
+            'anggaran_id' => 'required|exists:anggarans,id',
+            'kategori_id' => 'required|exists:kategoris,id',
         ]);
 
         $pemasukan = Pemasukan::findOrFail($id);
-        $pemasukan->jumlah = $request->jumlah;
+        $anggaran = $pemasukan->anggaran;
+        $anggaran->jumlah = $anggaran->jumlah - $pemasukan->jumlah_pemasukan + $request->jumlah_pemasukan;
+        $anggaran->save();
+
+        $pemasukan->jumlah_pemasukan = $request->jumlah_pemasukan;
         $pemasukan->deskripsi = $request->deskripsi;
         $pemasukan->anggaran_id = $request->anggaran_id;
+        $pemasukan->kategori_id = $request->kategori_id;
+        
         $pemasukan->save();
-
         return redirect()->route('pemasukan.index')->with('success', 'Data pemasukan berhasil diperbarui');
     }
 

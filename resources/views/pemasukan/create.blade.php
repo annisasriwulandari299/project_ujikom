@@ -11,18 +11,27 @@
           @csrf
         <div class="form-group">
           <label for="basicInput">Jumlah</label>
-          <input type="text" name="jumlah" class="form-control" id="basicInput" placeholder="Masukan Jumlah"/>
+          <input type="text" name="jumlah_pemasukan" class="form-control" id="basicInput" placeholder="Masukan Jumlah"/>
         </div>
         <div class="form-group">
           <label for="basicInput">Deskripsi</label>
           <textarea name="deskripsi" class="form-control" id="" width="100%" rows="3"></textarea>
         </div>
         <div class="form-group">
+          <label for="basicInput">Kategori</label>
+          <select name="kategori_id" class="form-control" id="">
+            <option value="">-- Pilih Kategori --</option>
+            @foreach($kategori as $data)
+            <option value="{{ $data->id }}">{{ $data->nama }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="form-group">
           <label for="basicInput">Anggaran</label>
-          <select name="aggaran_id" class="select-form" id="">
+          <select name="anggaran_id" class="form-control" id="">
             <option value="">-- Pilih Anggaran --</option>
             @foreach($anggaran as $data)
-            <option value="">{{ $data->nama }}</option>
+            <option value="{{ $data->id }}">{{ $data->nama_anggaran }}</option>
             @endforeach
           </select>
         </div>

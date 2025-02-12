@@ -19,6 +19,7 @@
                 <th>JUMLAH</th>
                 <th>DESKRIPSI</th>
                 <th>ANGGARAN</th>
+                <th>KATEGORI</th>
                 <th>ACTION</th>
               </tr>
             </thead>
@@ -26,9 +27,10 @@
                 @foreach ($pengeluaran as $data)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$data->jumlah}}</td>
+                    <td>{{$data->jumlah_pengeluaran}}</td>
                     <td>{{$data->deskripsi}}</td>
-                    <td>{{$data->anggran}}</td>
+                    <td>{{$data->anggaran->jumlah}}</td>
+                    <td>{{$data->kategori->nama}}</td>
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-info dropdown-toggle mr-1" type="button" id="dropdownMenuButton3"
@@ -36,8 +38,8 @@
                                 Action
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                                <a class="dropdown-item" href="{{  route('kategori.edit', $data->id) }}">Edit</a>
-                                <form action="{{ route('kategori.destroy', $data->id) }}" method="POST">
+                                <a class="dropdown-item" href="{{  route('pengeluaran.edit', $data->id) }}">Edit</a>
+                                <form action="{{ route('pengeluaran.destroy', $data->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="dropdown-item align-items-center" type="submit"

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anggaran;
+use App\Models\Pemasukan;
+use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 
 class AnggaranController extends Controller
@@ -23,16 +25,15 @@ class AnggaranController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'kategori_id' => 'required|exists:kategori,id',
             'jumlah' => 'required|integer',
+            'nama_anggaran' => 'required|string|max:255',
+
         ]);
 
         $anggaran = new Anggaran();
-        $anggaran->user_id = $request->user_id;
-        $anggaran->kategori_id = $request->kategori_id;
         $anggaran->jumlah = $request->jumlah;
-        $angaran->save();
+        $anggaran->nama_anggaran = $request->nama_anggaran;
+        $anggaran->save();
 
         return redirect()->route('anggaran.index')->with('success', 'Data anggaran berhasil ditambahkan');
     }
@@ -52,16 +53,14 @@ class AnggaranController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'kategori_id' => 'required|exists:kategori,id',
             'jumlah' => 'required|integer',
+            'nama_anggaran' => 'required|string|max:255',
         ]);
 
         $anggaran = Anggaran::findOrFail($id);
-        $anggaran->user_id = $request->user_id;
-        $anggaran->kategori_id = $request->kategori_id;
         $anggaran->jumlah = $request->jumlah;
-        $angaran->save();
+        $anggaran->nama_anggaran = $request->nama_anggaran;
+        $anggaran->save();
 
         return redirect()->route('anggaran.index')->with('success', 'Data anggaran berhasil diperbarui');
     }

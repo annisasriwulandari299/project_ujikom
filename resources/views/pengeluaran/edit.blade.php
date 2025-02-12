@@ -12,13 +12,16 @@
           @method('PUT')
         <div class="form-group">
           <label for="basicInput">Jumlah</label>
-          <input type="text" name="nama" class="form-control" id="basicInput" value="{{ $pengeluaran->Jumlah }}"/>
+          <input type="text" name="jumlah" class="form-control" id="basicInput" value="{{ $pengeluaran->Jumlah }}"/>
         </div>
         <label for="basicInput">Deskripsi</label>
-          <input type="text" name="nama" class="form-control" id="basicInput" value="{{ $pengeluaran->deskripsi }}"/>
+          <input type="text" name="deskripsi" class="form-control" id="basicInput" value="{{ $pengeluaran->deskripsi }}"/>
         </div>
         <label for="basicInput">Anggaran</label>
-          <input type="text" name="nama" class="form-control" id="basicInput" value="{{ $pengeluaran->anggaran }}"/>
+          <input type="text" name="anggaran" class="form-control" id="basicInput" value="{{ $pengeluaran->anggaran }}"/>
+        </div>
+        <label for="basicInput">Kategori</label>
+          <input type="text" name="kategori" class="form-control" id="basicInput" value="{{ $pengeluaran->kategori }}"/>
         </div>
         
         <div class="form-group">

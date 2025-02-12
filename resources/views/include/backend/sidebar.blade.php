@@ -23,7 +23,10 @@
                             <a href="{{ route('pemasukan.index') }}">Pemasukan</a>
                         </li>
                         <li>
-                            <a href="">Pengeluaran</a>
+                            <a href="{{ route('pengeluaran.index') }}">Pengeluaran</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('anggaran.index') }}">Anggaran</a>
                         </li>
                     </ul>
                 </li>

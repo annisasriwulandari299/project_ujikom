@@ -11,16 +11,28 @@
           @csrf
           @method('PUT')
         <div class="form-group">
-          <label for="basicInput">Jumlah</label>
-          <input type="text" name="nama" class="form-control" id="basicInput" value="{{ $pemasukan->jumlah }}"/>
+          <label for="basicInput">Jumlah Pemasukan</label>
+          <input type="text" name="jumlah_pemasukan" class="form-control" id="basicInput" value="{{ $pemasukan->jumlah_pemasukan }}"/>
         </div>
         <div class="form-group">
           <label for="basicInput">Deskripsi</label>
-          <textarea name="catatan" class="form-control" id="" width="100%" rows="3">{{ $pemasukan->deskripsi }}</textarea>
+          <input type="text" name="deskripsi" class="form-control" id="basicInput" value="{{ $pemasukan->deskripsi }}"/>
         </div>
         <div class="form-group">
           <label for="basicInput">Anggaran</label>
-          <input type="text" name="nama" class="form-control" id="basicInput" value="{{ $pemasukan->anggaran }}"/>
+          <select name="anggaran_id" class="form-control" id="">
+            @foreach($anggaran as $data)
+            <option value="{{ $data->id }}">{{ $data->nama_anggaran }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="basicInput">Kategori</label>
+          <select name="kategori_id" class="form-control" id="">
+            @foreach($kategori as $data)
+            <option value="{{ $data->id }}">{{ $data->nama }}</option>
+            @endforeach
+          </select>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary round">Submit</button>

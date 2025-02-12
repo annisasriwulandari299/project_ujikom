@@ -19,6 +19,7 @@
                 <th>JUMLAH</th>
                 <th>DESKRIPSI</th>
                 <th>ANGGARAN</th>
+                <th>KATEGORI</th>
                 <th>ACTION</th>
               </tr>
             </thead>
@@ -26,9 +27,10 @@
                 @foreach ($pemasukan as $data)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$data->jumlah}}</td>
+                    <td>{{$data->jumlah_pemasukan}}</td>
                     <td>{{$data->deskripsi}}</td>
-                    <td>{{$data->anggran}}</td>
+                    <td>{{$data->anggaran->jumlah}}</td>
+                    <td>{{$data->kategori->nama}}</td>
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-info dropdown-toggle mr-1" type="button" id="dropdownMenuButton3"

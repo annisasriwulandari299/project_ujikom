@@ -1,75 +1,52 @@
-@extend('layouts.frontend.template')
-@section
+@extends('layouts.frontend.template')
+@section('content')
 <div class="row" id="table-hover-row">
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-        <h4 class="card-title">Hoverable rows</h4>
+        <h4 class="card-title">Table Anggaran</h4>
       </div>
       <div class="card-content">
         <div class="card-body">
-          <p>Add <code class="highlighter-rouge">.table-hover</code> to enable a hover state on table rows within a
-            <code class="highlighter-rouge">&lt;tbody&gt;</code>.</p>
+            <a href="{{  route('anggaran.create') }}" type="button" class="btn btn-primary round">Add +</a>
         </div>
         <!-- table hover -->
         <div class="table-responsive">
           <table class="table table-hover mb-0">
             <thead>
               <tr>
-                <th>NAME</th>
-                <th>RATE</th>
-                <th>SKILL</th>
-                <th>TYPE</th>
-                <th>LOCATION</th>
+                <th>NO</th>
+                <th>JUMLAH</th>
+                <th>NAMA</th>
                 <th>ACTION</th>
               </tr>
             </thead>
             <tbody>
+                @foreach ($anggaran as $data)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$data->jumlah}}</td>
+                    <td>{{$data->nama_anggaran}}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-info dropdown-toggle mr-1" type="button" id="dropdownMenuButton3"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Action
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                                <a class="dropdown-item" href="{{  route('anggaran.edit', $data->id) }}">Edit</a>
+                                <form action="{{ route('anggaran.destroy', $data->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="dropdown-item align-items-center" type="submit"
+                                    onclick="return confirm('Apakah kamu yakin ingin menghapus kategori ini?')">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                @endforeach
               <tr>
-                <td class="text-bold-500">Michael Right</td>
-                <td>$15/hr</td>
-                <td class="text-bold-500">UI/UX</td>
-                <td>Remote</td>
-                <td>Austin,Taxes</td>
-                <td><a href="#"><i
-                      class="badge-circle badge-circle-light-secondary font-medium-1" data-feather="mail"></i></a></td>
-              </tr>
-              <tr>
-                <td class="text-bold-500">Morgan Vanblum</td>
-                <td>$13/hr</td>
-                <td class="text-bold-500">Graphic concepts</td>
-                <td>Remote</td>
-                <td>Shangai,China</td>
-                <td><a href="#"><i
-                      class="badge-circle badge-circle-light-secondary font-medium-1" data-feather="mail"></i></a></td>
-              </tr>
-              <tr>
-                <td class="text-bold-500">Tiffani Blogz</td>
-                <td>$15/hr</td>
-                <td class="text-bold-500">Animation</td>
-                <td>Remote</td>
-                <td>Austin,Texas</td>
-                <td><a href="#"><i
-                      class="badge-circle badge-circle-light-secondary font-medium-1" data-feather="mail"></i></a></td>
-              </tr>
-              <tr>
-                <td class="text-bold-500">Ashley Boul</td>
-                <td>$15/hr</td>
-                <td class="text-bold-500">Animation</td>
-                <td>Remote</td>
-                <td>Austin,Texas</td>
-                <td><a href="#"><i
-                      class="badge-circle badge-circle-light-secondary font-medium-1" data-feather="mail"></i></a></td>
-              </tr>
-              <tr>
-                <td class="text-bold-500">Mikkey Mice</td>
-                <td>$15/hr</td>
-                <td class="text-bold-500">Animation</td>
-                <td>Remote</td>
-                <td>Austin,Texas</td>
-                <td><a href="#"><i
-                      class="badge-circle badge-circle-light-secondary font-medium-1" data-feather="mail"></i></a></td>
-              </tr>
             </tbody>
           </table>
         </div>

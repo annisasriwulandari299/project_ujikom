@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in - Voler Admin Dashboard</title>
-    <link rel="stylesheet" href="{{asset('user/assets/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.css')}}">
 
-    <link rel="shortcut icon" href="{{asset('user/assets/images/favicon.svg')}}" type="image/x-icon">
-    <link rel="stylesheet" href="{{asset('user/assets/css/app.css')}}">
+    <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.svg')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{asset('admin/assets/css/app.css')}}">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
                     <div class="card pt-4">
                         <div class="card-body">
                             <div class="text-center mb-5">
-                                <img src="{{asset('user/assets/images/favicon.svg')}}" height="48" class='mb-4'>
+                                <img src="{{asset('admin/assets/images/favicon.svg')}}" height="48" class='mb-4'>
                                 <h3>Sign In</h3>
                                 <p>Please sign in to continue to Voler.</p>
                             </div>
@@ -70,10 +70,10 @@
         </div>
 
     </div>
-    <script src="{{asset('user/assets/js/feather-icons/feather.min.js')}}"></script>
-    <script src="{{asset('user/assets/js/app.js')}}"></script>
+    <script src="{{asset('admin/assets/js/feather-icons/feather.min.js')}}"></script>
+    <script src="{{asset('admin/assets/js/app.js')}}"></script>
 
-    <script src="{{asset('user/assets/js/main.js')}}"></script>
+    <script src="{{asset('admin/assets/js/main.js')}}"></script>
 </body>
 
 </html>

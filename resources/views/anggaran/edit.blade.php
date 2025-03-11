@@ -19,6 +19,14 @@
           <input type="text" name="nama_anggaran" class="form-control" id="basicInput" value="{{ $anggaran->nama_anggaran }}"/>
         </div>
         <div class="form-group">
+          <label for="basicInput">Nama User</label>
+          <select name="user_id" class="form-control" id="">
+            @foreach($user as $data)
+            <option value="{{ $data->id }}">{{ $data->username }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="form-group">
             <button type="submit" class="btn btn-primary round">Submit</button>
             <a href="{{ route('anggaran.index') }}" class="btn btn-secondary round">Back</a>
         </div>

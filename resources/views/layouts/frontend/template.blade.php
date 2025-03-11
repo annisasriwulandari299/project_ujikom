@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Voler Admin Dashboard</title>
     
-    <link rel="stylesheet" href="{{asset('user/assets/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.css')}}">
     
-    <link rel="stylesheet" href="{{asset('user/assets/vendors/chartjs/Chart.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/vendors/chartjs/Chart.min.css')}}">
 
-    <link rel="stylesheet" href="{{asset('user/assets/vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
-    <link rel="stylesheet" href="{{asset('user/assets/css/app.css')}}">
-    <link rel="shortcut icon" href="{{asset('user/assets/images/favicon.svg" type="image/x-icon')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/css/app.css')}}">
+    <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.svg" type="image/x-icon')}}">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <div id="sidebar" class='active'>
             <div class="sidebar-wrapper active">
     <div class="sidebar-header">
-        <img src="{{asset('user/assets/images/logo.svg')}}" alt="" srcset="">
+        <img src="{{asset('admin/assets/images/logo.svg')}}" alt="" srcset="">
     </div>
     @include('include.backend.sidebar')
     </div>
@@ -44,14 +44,14 @@
             </footer>
         </div>
     </div>
-    <script src="{{asset('user/assets/js/feather-icons/feather.min.js')}}"></script>
-    <script src="{{asset('user/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
-    <script src="{{asset('user/assets/js/app.js')}}"></script>
+    <script src="{{asset('admin/assets/js/feather-icons/feather.min.js')}}"></script>
+    <script src="{{asset('admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{asset('admin/assets/js/app.js')}}"></script>
     
-    <script src="{{asset('user/assets/vendors/chartjs/Chart.min.js')}}"></script>
-    <script src="{{asset('user/assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
-    <script src="{{asset('user/assets/js/pages/dashboard.js')}}"></script>
+    <script src="{{asset('admin/assets/vendors/chartjs/Chart.min.js')}}"></script>
+    <script src="{{asset('admin/assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
+    <script src="{{asset('admin/assets/js/pages/dashboard.js')}}"></script>
 
-    <script src="{{asset('user/assets/js/main.js')}}"></script>
+    <script src="{{asset('admin/assets/js/main.js')}}"></script>
 </body>
 </html>

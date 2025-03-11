@@ -18,6 +18,7 @@
                 <th>NO</th>
                 <th>JUMLAH</th>
                 <th>NAMA</th>
+                <th>USER</th>
                 <th>ACTION</th>
               </tr>
             </thead>
@@ -27,6 +28,7 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$data->jumlah}}</td>
                     <td>{{$data->nama_anggaran}}</td>
+                    <td>{{$data->user->username}}</td>
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-info dropdown-toggle mr-1" type="button" id="dropdownMenuButton3"
@@ -36,6 +38,15 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
                                 <a class="dropdown-item" href="{{  route('anggaran.edit', $data->id) }}">Edit</a>
                                 <form action="{{ route('anggaran.destroy', $data->id) }}" method="POST">
+                                <div class="form-group">
+                               {{-- <label for="basicInput">Nama User</label>
+                               <select name="user_id" class="form-control" id="">
+                               <option value="" selected disabled >-- Pilih User --</option>
+                                @foreach($user as $data)
+                               <option value="{{ $data->id }}">{{ $data->username }}</option>
+                              @endforeach
+                              </select> --}}
+                         </div>
                                     @csrf
                                     @method('DELETE')
                                     <button class="dropdown-item align-items-center" type="submit"

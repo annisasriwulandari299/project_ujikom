@@ -26,7 +26,7 @@
             @endforeach
           </select>
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
           <label for="basicInput">Anggaran</label>
           <select name="anggaran_id" class="form-control" id="">
             <option value="">-- Pilih Anggaran --</option>
@@ -34,7 +34,7 @@
             <option value="{{ $data->id }}">{{ $data->nama_anggaran }}</option>
             @endforeach
           </select>
-        </div>
+        </div> --}}
         <div class="form-group">
             <button type="submit" class="btn btn-primary round">Submit</button>
             <a href="{{ route('pemasukan.index') }}" class="btn btn-secondary round">Back</a>

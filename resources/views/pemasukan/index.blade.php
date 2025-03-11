@@ -18,7 +18,7 @@
                 <th>NO</th>
                 <th>JUMLAH</th>
                 <th>DESKRIPSI</th>
-                <th>ANGGARAN</th>
+                {{-- <th>ANGGARAN</th> --}}
                 <th>KATEGORI</th>
                 <th>ACTION</th>
               </tr>
@@ -29,7 +29,7 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$data->jumlah_pemasukan}}</td>
                     <td>{{$data->deskripsi}}</td>
-                    <td>{{$data->anggaran->jumlah}}</td>
+                    {{-- <td>{{$data->anggaran->jumlah}}</td> --}}
                     <td>{{$data->kategori->nama}}</td>
                     <td>
                         <div class="dropdown">

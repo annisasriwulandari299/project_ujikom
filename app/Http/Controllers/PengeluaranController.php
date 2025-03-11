@@ -20,7 +20,7 @@ class PengeluaranController extends Controller
     {
         $anggaran = Anggaran::all();
         $kategori = Kategori::all();
-        
+
         return view('pengeluaran.create', compact('anggaran', 'kategori'));
     }
 
@@ -38,11 +38,6 @@ class PengeluaranController extends Controller
         $pengeluaran->deskripsi = $request->deskripsi;
         $pengeluaran->anggaran_id = $request->anggaran_id;
         $pengeluaran->kategori_id = $request->kategori_id;
-        
-
-        $anggaran = Anggaran::find($request->anggaran_id);
-        $anggaran->jumlah -= $request->jumlah_pengeluaran;
-        $anggaran->save();
 
         $pengeluaran->save();
         return redirect()->route('pengeluaran.index')->with('success', 'Data pengeluaran berhasil ditambahkan');
@@ -58,21 +53,30 @@ class PengeluaranController extends Controller
     {
         $pengeluaran = Pengeluaran::findOrFail($id);
         $anggaran = Anggaran::all();
-        return view('pengeluaran.edit', compact('pengeluaran', 'anggaran'));
+        $kategori = Kategori::all();
+
+        return view('pengeluaran.edit', compact('pengeluaran', 'anggaran', 'kategori'));
     }
 
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'jumlah' => 'required|integer',
-            'deskripsi' => 'nullable',
-            'anggaran_id' => 'required|exists:anggaran,id',
+            'jumlah_pengeluaran' => 'required|integer',
+            'deskripsi' => 'nullable|string',
+            'anggaran_id' => 'required|exists:anggarans,id',
+            'kategori_id' => 'required|exists:kategoris,id',
         ]);
 
         $pengeluaran = Pengeluaran::findOrFail($id);
-        $pengeluaran->jumlah = $request->jumlah;
+        $anggaran = $pengeluaran->anggaran;
+        $anggaran->jumlah = $anggaran->jumlah + $pengeluaran->jumlah_pengeluaran - $request->jumlah_pengeluaran;
+        $anggaran->save();
+
+        $pengeluaran->jumlah_pengeluaran = $request->jumlah_pengeluaran;
         $pengeluaran->deskripsi = $request->deskripsi;
         $pengeluaran->anggaran_id = $request->anggaran_id;
+        $pengeluaran->kategori_id = $request->kategori_id;
+
         $pengeluaran->save();
 
         return redirect()->route('pengeluaran.index')->with('success', 'Data pengeluaran berhasil diperbarui');

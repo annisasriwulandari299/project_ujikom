@@ -18,14 +18,14 @@
           <label for="basicInput">Deskripsi</label>
           <input type="text" name="deskripsi" class="form-control" id="basicInput" value="{{ $pemasukan->deskripsi }}"/>
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
           <label for="basicInput">Anggaran</label>
           <select name="anggaran_id" class="form-control" id="">
             @foreach($anggaran as $data)
             <option value="{{ $data->id }}">{{ $data->nama_anggaran }}</option>
             @endforeach
           </select>
-        </div>
+        </div> --}}
         <div class="form-group">
           <label for="basicInput">Kategori</label>
           <select name="kategori_id" class="form-control" id="">

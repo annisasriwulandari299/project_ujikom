@@ -9,13 +9,13 @@ class Pemasukan extends Model
 {
     use HasFactory;
 
-    protected $fillable = 
-    ['jumlah_pemasukan','deskripsi','anggaran_id','kategori_id'];
+    protected $fillable =
+    ['jumlah_pemasukan','deskripsi','kategori_id'];
 
-    public function anggaran()
-    {
-        return $this->belongsTo(Anggaran::class, 'anggaran_id');
-    }
+    // public function anggaran()
+    // {
+    //     return $this->belongsTo(Anggaran::class, 'anggaran_id');
+    // }
 
     public function kategori()
     {

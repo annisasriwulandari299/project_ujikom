@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
+use App\Http\controllers\LaporanController;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller

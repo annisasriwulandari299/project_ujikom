@@ -7,6 +7,14 @@
         <h4 class="card-title">Table Pengeluaran</h4>
       </div>
       <div class="card-content">
+        @foreach ($pengeluaran as $item)
+        @if ($item->anggaran->jumlah < $item->jumlah_pengeluaran)
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Jumlah Pengeluaran Melebihi Anggaran</h4>
+            <p>Jumlah Pengeluaran Melebihi Anggaran</p>
+        </div>
+        @endif
+        @endforeach
         <div class="card-body">
             <a href="{{  route('pengeluaran.create') }}" type="button" class="btn btn-primary round">Add +</a>
         </div>
@@ -18,7 +26,8 @@
                 <th>NO</th>
                 <th>JUMLAH</th>
                 <th>DESKRIPSI</th>
-                <th>ANGGARAN</th>
+                <th>TOTAL ANGGARAN</th>
+                <th>SISA ANGGARAN</th>
                 <th>KATEGORI</th>
                 <th>ACTION</th>
               </tr>
@@ -30,6 +39,7 @@
                     <td>{{$data->jumlah_pengeluaran}}</td>
                     <td>{{$data->deskripsi}}</td>
                     <td>{{$data->anggaran->jumlah}}</td>
+                    <td>{{$data->anggaran->jumlah - $data->jumlah_pengeluaran}}</td>
                     <td>{{$data->kategori->nama}}</td>
                     <td>
                         <div class="dropdown">

@@ -9,7 +9,9 @@ use App\Models\Pemasukan;
 use App\Models\Pengeluaran;
 use App\Models\User;
 use Carbon\Carbon;
-use Barryvdh\DomPDF\Facade\PDF;
+// use Barryvdh\DomPDF\Facade\PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 use Illuminate\Http\Request;
 

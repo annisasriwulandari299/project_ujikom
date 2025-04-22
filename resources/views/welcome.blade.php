@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="{{asset('user/assets/img/favicon.ico')}}">
+		<link rel="shortcut icon" type="image/x-icon" href="{{asset('user/assets/img/logo.png')}}">
 
 		<!-- CSS here -->
             <link rel="stylesheet" href="{{asset('user/assets/css/bootstrap.min.css')}}">
@@ -55,9 +55,7 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li class="active"><a href="#"> Home</a></li>
-                                        <li><a href="#feature">Feature</a></li>
-                                        <li><a href="#service">Services</a></li>
+
                                     </ul>
                                 </nav>
                             </div>
@@ -139,7 +137,7 @@
                         <div class="row">
                             <div class="col-lg-10 col-md-10">
                                 <div class="section-tittle">
-                                    <h2>Beberapa Fitur Terbaik dari Aplikasi Kami!</h2>
+                                    <h2> Keunggulan Aplikasi Tracker Financial</h2>
                                 </div>
                             </div>
                         </div>
@@ -151,8 +149,8 @@
                                         <span class="flaticon-support"></span>
                                     </div>
                                     <div class="features-caption">
-                                        <h3>Mudah Dikustomisasi</h3>
-                                        <p>Aplikasi kami dapat dengan mudah disesuaikan sesuai dengan kebutuhan Anda.</p>
+                                        <h3>Pencatatan Keuangan yang Terstruktur</h3>
+                                        <p>Aplikasi memungkinkan pengguna mencatat pemasukan, pengeluaran, dan anggaran dengan rapi berdasarkan kategori.</p>
                                     </div>
                                 </div>
                             </div>
@@ -162,8 +160,8 @@
                                         <span class="flaticon-support"></span>
                                     </div>
                                     <div class="features-caption">
-                                        <h3>Keamanan Maksimal</h3>
-                                        <p>Dilengkapi dengan sistem keamanan tinggi untuk melindungi data dan privasi Anda.</p>
+                                        <h3>Visualisasi Laporan Otomatis</h3>
+                                        <p>Data yang dimasukkan akan langsung tergambar dalam bentuk laporan—baik itu pemasukan, pengeluaran, anggaran, maupun margin (selisih).</p>
                                     </div>
                                 </div>
                             </div>
@@ -174,7 +172,7 @@
                                     </div>
                                     <div class="features-caption">
                                         <h3>Dukungan Pelanggan</h3>
-                                        <p>Tim kami siap membantu Anda kapan saja dengan layanan pelanggan yang responsif.</p>
+                                        <p>Fitur kelola anggaran membantu pengguna mengatur batas pengeluaran agar tidak boros dan lebih disiplin finansial.</p>
                                     </div>
                                 </div>
                             </div>
@@ -184,8 +182,8 @@
                                         <span class="flaticon-support"></span>
                                     </div>
                                     <div class="features-caption">
-                                        <h3>Desain Kreatif</h3>
-                                        <p>Tampilan yang modern dan menarik untuk pengalaman pengguna yang lebih baik.</p>
+                                        <h3>Pengelolaan Kategori Fleksibel</h3>
+                                        <p>Pengguna dapat menyesuaikan kategori sesuai kebutuhan pribadi, misalnya: makan, transportasi, hiburan, dll.</p>
                                     </div>
                                 </div>
                             </div>
@@ -207,7 +205,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6">
                         <div class="section-tittle text-center">
-                            <h2>Bagaimana Kami Bisa Membantu<br>Anda dengan Appco!</h2>
+                            <h2>Kenapa harus pakai Smart Money ?<br></h2>
                         </div>
                     </div>
                 </div>
@@ -219,8 +217,8 @@
                                 <span class="flaticon-businessman"></span>
                             </div>
                             <div class="service-cap">
-                                <h4><a href="#">Kelola dengan Mudah</a></h4>
-                                <p>Aplikasi kami memudahkan Anda dalam mengelola berbagai tugas dengan efisien.</p>
+                                <h4><a href="#">Mengontrol Keuangan Lebih Mudah</a></h4>
+                                <p>Dengan catatan pemasukan dan pengeluaran yang rapi, kamu tahu ke mana uangmu pergi setiap harinya.</p>
                             </div>
                         </div>
                     </div>
@@ -230,8 +228,8 @@
                                 <span class="flaticon-pay"></span>
                             </div>
                             <div class="service-cap">
-                                <h4><a href="#">Terima Pembayaran dengan Mudah</a></h4>
-                                <p>Proses pembayaran menjadi lebih cepat dan aman dengan fitur yang kami sediakan.</p>
+                                <h4><a href="#">Laporan Otomatis & Akurat</a></h4>
+                                <p>Aplikasi ini menyajikan data keuangan dalam bentuk laporan yang jelas—kamu tidak perlu hitung manual lagi.</p>
                             </div>
                         </div>
                     </div>
@@ -241,112 +239,15 @@
                                 <span class="flaticon-plane"></span>
                             </div>
                             <div class="service-cap">
-                                <h4><a href="#">Pesan dengan Cepat</a></h4>
-                                <p>Nikmati komunikasi instan dengan fitur pesan cepat kami untuk meningkatkan produktivitas.</p>
+                                <h4><a href="#">Meningkatkan Kesadaran Finansial</a></h4>
+                                <p>Kamu jadi lebih bijak dalam mengatur uang, karena tahu batasan anggaran dan sisa margin keuanganmu.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Services Area End -->
-        <!-- Applic App Start -->
-        <div class="applic-apps section-padding2">
-            <div class="container-fluid">
-                <div class="row">
-                    <!-- Judul dan Deskripsi -->
-                    <div class="col-xl-4 col-lg-4 col-md-8">
-                        <div class="single-cases-info mb-30">
-                            <h3>Tangkapan Layar<br>Aplikasi Kami</h3>
-                            <p>Jelajahi tampilan aplikasi kami dengan berbagai fitur yang mudah digunakan. Dirancang untuk memberikan pengalaman terbaik bagi pengguna dengan antarmuka yang menarik dan responsif.</p>
-                        </div>
-                    </div>
-                    <!-- Galeri Gambar -->
-                    <div class="col-xl-8 col-lg-8 col-md-7">
-                        <div class="app-active owl-carousel">
-                            <div class="single-cases-img">
-                                <img src="{{ asset('user/assets/img/gallery/App1.png') }}" alt="Tampilan Aplikasi 1">
-                            </div>
-                            <div class="single-cases-img">
-                                <img src="{{ asset('user/assets/img/gallery/App2.png') }}" alt="Tampilan Aplikasi 2">
-                            </div>
-                            <div class="single-cases-img">
-                                <img src="{{ asset('user/assets/img/gallery/App3.png') }}" alt="Tampilan Aplikasi 3">
-                            </div>
-                            <div class="single-cases-img">
-                                <img src="{{ asset('user/assets/img/gallery/App2.png') }}" alt="Tampilan Aplikasi 4">
-                            </div>
-                            <div class="single-cases-img">
-                                <img src="{{ asset('user/assets/img/gallery/App1.png') }}" alt="Tampilan Aplikasi 5">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Applic App End -->
-        <!-- Our Customer Start -->
-        <div class="our-customer section-padd-top30">
-            <div class="container-fluid">
-                <div class="our-customer-wrapper">
-                    <!-- Judul Bagian -->
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-xl-8">
-                            <div class="section-tittle text-center">
-                                <h2>Apa Kata Pelanggan Kami</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimoni Pelanggan -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="customar-active dot-style d-flex dot-style">
-                                <div class="single-customer mb-100">
-                                    <div class="what-img">
-                                        <img src="{{ asset('user/assets/img/shape/man1.png') }}" alt="Testimoni Pelanggan 1">
-                                    </div>
-                                    <div class="what-cap">
-                                        <h4><a href="#">Pengalaman Terbaik dengan Aplikasi Ini!</a></h4>
-                                        <p>Aplikasi ini sangat membantu saya dalam mengelola pekerjaan sehari-hari dengan mudah dan efisien. Fitur-fiturnya luar biasa!</p>
-                                    </div>
-                                </div>
-
-                                <div class="single-customer mb-100">
-                                    <div class="what-img">
-                                        <img src="{{ asset('user/assets/img/shape/man2.png') }}" alt="Testimoni Pelanggan 2">
-                                    </div>
-                                    <div class="what-cap">
-                                        <h4><a href="#">Sangat Direkomendasikan!</a></h4>
-                                        <p>Antarmuka yang ramah pengguna dan fitur lengkap membuat aplikasi ini menjadi pilihan utama saya untuk kebutuhan bisnis.</p>
-                                    </div>
-                                </div>
-
-                                <div class="single-customer mb-100">
-                                    <div class="what-img">
-                                        <img src="{{ asset('user/assets/img/shape/man3.png') }}" alt="Testimoni Pelanggan 3">
-                                    </div>
-                                    <div class="what-cap">
-                                        <h4><a href="#">Luar Biasa dan Mudah Digunakan</a></h4>
-                                        <p>Saya sangat puas dengan aplikasi ini. Semua fitur bekerja dengan sempurna, dan dukungan pelanggan juga sangat responsif.</p>
-                                    </div>
-                                </div>
-
-                                <div class="single-customer mb-100">
-                                    <div class="what-img">
-                                        <img src="{{ asset('user/assets/img/shape/man2.png') }}" alt="Testimoni Pelanggan 4">
-                                    </div>
-                                    <div class="what-cap">
-                                        <h4><a href="#">Solusi Terbaik untuk Bisnis Saya</a></h4>
-                                        <p>Aplikasi ini benar-benar membantu meningkatkan produktivitas saya. Saya bisa mengelola pekerjaan dengan lebih efisien.</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <!-- Our Customer End -->
         <!-- Available App  Start-->
         <div class="available-app-area">
@@ -355,12 +256,7 @@
                     <div class="col-xl-5 col-lg-6">
                         <div class="app-caption">
                             <div class="section-tittle section-tittle3">
-                                <h2>Aplikasi Kami Tersedia untuk Semua Perangkat, Unduh Sekarang!</h2>
-                                <p>Nikmati pengalaman terbaik dengan aplikasi kami di berbagai perangkat. Unduh sekarang dan rasakan kemudahannya!</p>
-                                <div class="app-btn">
-                                    <a href="#" class="app-btn1"><img src="{{ asset('user/assets/img/shape/app_btn1.png') }}" alt="Unduh di Google Play"></a>
-                                    <a href="#" class="app-btn2"><img src="{{ asset('user/assets/img/shape/app_btn2.png') }}" alt="Unduh di App Store"></a>
-                                </div>
+                                <p>Terima kasih telah mencatat keuangan Anda. Terus pantau pemasukan untuk meraih tujuan finansial Anda!</p>
                             </div>
                         </div>
                     </div>
@@ -380,88 +276,7 @@
         <!-- Available App End-->
     </main>
     <footer>
-        <!-- Footer Start -->
-        <div class="footer-main">
-            <div class="footer-area footer-padding">
-                <div class="container">
-                    <div class="row justify-content-between">
-                        <div class="col-lg-3 col-md-4 col-sm-8">
-                            <div class="single-footer-caption mb-30">
-                                <!-- Logo -->
-                                <div class="footer-logo">
-                                    <a href="#"><img src="{{ asset('user/assets/img/logo/logo2_footer.png') }}" alt="Logo Footer"></a>
-                                </div>
-                                <div class="footer-tittle">
-                                    <div class="footer-pera">
-                                        <p class="info1">Kami hadir untuk memberikan layanan terbaik dengan solusi inovatif.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-4 col-sm-5">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Tautan Cepat</h4>
-                                    <ul>
-                                        <li><a href="#">Tentang Kami</a></li>
-                                        <li><a href="#">Fitur</a></li>
-                                        <li><a href="#">Harga</a></li>
-                                        <li><a href="#">Unduh</a></li>
-                                        <li><a href="#">Ulasan</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-4 col-sm-7">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Dukungan</h4>
-                                    <ul>
-                                        <li><a href="#">Laporkan Bug</a></li>
-                                        <li><a href="#">Kebijakan Privasi</a></li>
-                                        <li><a href="#">Syarat & Ketentuan</a></li>
-                                        <li><a href="#">Peta Situs</a></li>
-                                        <li><a href="#">FAQ</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-8">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Berlangganan Newsletter</h4>
-                                    <div class="footer-pera footer-pera2">
-                                        <p>Dapatkan berita dan penawaran terbaru langsung ke email Anda.</p>
-                                    </div>
-                                    <!-- Form -->
-                                    <div class="footer-form">
-                                        <div id="mc_embed_signup">
-                                            <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
-                                                <input type="email" name="EMAIL" id="newsletter-form-email" placeholder="Masukkan email Anda" class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukkan email Anda'">
-                                                <div class="form-icon">
-                                                    <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm">
-                                                        <img src="{{ asset('user/assets/img/shape/form_icon.png') }}" alt="Ikon Kirim">
-                                                    </button>
-                                                </div>
-                                                <div class="mt-10 info"></div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Hak Cipta -->
-                    <div class="row align-items-center">
-                        <div class="col-xl-12">
-                            <div class="footer-copy-right">
-                                <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> Semua hak dilindungi. Dibuat dengan <i class="ti-heart" aria-hidden="true"></i> oleh <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!-- Footer End -->
     </footer>
 

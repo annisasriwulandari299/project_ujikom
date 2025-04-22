@@ -6,12 +6,30 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h3>Laporan Keuangan</h3>
-                        <a href="{{ route('laporan.pemasukan-pdf') }}" class="btn btn-primary">
-                            <i class="fas fa-download"></i> Download PDF
-                        </a>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3>Laporan Pemasukan</h3>
                     </div>
+                    <form action="{{ route('laporan.pemasukan') }}" method="GET" class="mb-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Dari Tanggal</label>
+                                <input type="date" name="start_date" class="form-control"
+                                    value="{{ request('start_date') }}">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Sampai Tanggal</label>
+                                <input type="date" name="end_date" class="form-control"
+                                    value="{{ request('end_date') }}">
+                            </div>
+                            <div class="col-md-4 d-flex align-items-end">
+                                <button type="submit" class="btn btn-success mr-2">Filter</button>
+                                <a href="{{ route('laporan.pemasukan') }}" class="btn btn-secondary mr-2">Reset</a>
+                                <a href="{{ route('laporan.pemasukan-pdf') }}" class="btn btn-primary">
+                                    Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="card-body">
@@ -44,7 +62,8 @@
                             <tfoot>
                                 <tr class="font-weight-bold">
                                     <td colspan="1">Total Pemasukan</td>
-                                    <td colspan="5" class="text-center">Rp {{ number_format($totalAnggaran, 0, ',', '.') }}</td>
+                                    <td colspan="5" class="text-center">Rp {{ number_format($totalPemasukan, 0, ',',
+                                        '.') }}</td>
                                 </tr>
                             </tfoot>
                         </table>

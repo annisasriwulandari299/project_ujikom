@@ -1,4 +1,4 @@
-@extends('layouts.frontend.admin')
+@extends('layouts.frontend.template')
 
 @section('content')
 <div class="row">
@@ -7,30 +7,30 @@
             <div class="card-body">
                 <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
                     <div class="mb-3 mb-sm-0">
-                        <h5 class="card-title fw-semibold">User Login Overview</h5>
+                        <h5 class="card-title fw-semibold">Grafik Pemasukan & Pengeluaran</h5>
                     </div>
                 </div>
-                <div id="loginChart"></div>
+                <div id="financeChart"></div>
             </div>
         </div>
     </div>
 </div>
- 
+
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
     var options = {
         chart: {
-            type: 'line',
+            type: 'bar',
             height: 350
         },
         series: [
             {
-                name: 'Login',
-                data: @json($loginData)
+                name: 'Pemasukan',
+                data: @json($pemasukanData)
             },
             {
-                name: 'Register',
-                data: @json($registerData)
+                name: 'Pengeluaran',
+                data: @json($pengeluaranData)
             }
         ],
         xaxis: {
@@ -41,13 +41,12 @@
         },
         yaxis: {
             title: {
-                text: 'Jumlah'
+                text: 'Jumlah (Rp)'
             }
         }
     };
 
-    var chart = new ApexCharts(document.querySelector("#loginChart"), options);
+    var chart = new ApexCharts(document.querySelector("#financeChart"), options);
     chart.render();
 </script>
-
 @endsection

@@ -6,6 +6,10 @@ use App\Models\Pemasukan;
 use App\Models\Anggaran;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PemasukanMail;
+
 
 class PemasukanController extends Controller
 {
@@ -14,6 +18,12 @@ class PemasukanController extends Controller
         $pemasukan = Pemasukan::with('kategori')->get();
         return view('pemasukan.index', compact('pemasukan'));
 
+    }
+
+    public function indexApi()
+    {
+        $pemasukan = Pemasukan::with('kategori')->get();
+        return response()->json($pemasukan);
     }
 
     public function create()
@@ -36,8 +46,9 @@ class PemasukanController extends Controller
         $pemasukan = new Pemasukan();
         $pemasukan->jumlah_pemasukan = $request->jumlah_pemasukan;
         $pemasukan->deskripsi = $request->deskripsi;
-        // $pemasukan->anggaran_id = $request->anggaran_id;
         $pemasukan->kategori_id = $request->kategori_id;
+
+        Mail::to(Auth::user()->email)->send(new PemasukanMail( $request->jumlah_pemasukan, $request->deskripsi));
 
         $pemasukan->save();
         return redirect()->route('pemasukan.index')->with('success', 'Data pemasukan berhasil ditambahkan');

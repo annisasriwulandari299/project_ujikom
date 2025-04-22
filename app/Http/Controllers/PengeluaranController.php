@@ -6,6 +6,10 @@ use App\Models\Pengeluaran;
 use App\Models\Anggaran;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PengeluaranMail;
+
 
 class PengeluaranController extends Controller
 {
@@ -14,6 +18,12 @@ class PengeluaranController extends Controller
         $pengeluaran = Pengeluaran::with('anggaran', 'kategori')->get();
 
         return view('pengeluaran.index', compact('pengeluaran'));
+    }
+
+    public function indexApi()
+    {
+        $pengeluaran = Pengeluaran::with('kategori')->get();
+        return response()->json($pengeluaran);
     }
 
     public function create()
@@ -28,16 +38,25 @@ class PengeluaranController extends Controller
     {
         $validated = $request->validate([
             'jumlah_pengeluaran' => 'required|integer',
-            'deskripsi' => 'nullable',
-            'anggaran_id' => 'required|nullable',
-            'kategori_id' => 'required',
+            'deskripsi'          => 'nullable',
+            'anggaran_id'        => 'required|nullable',
+            'kategori_id'        => 'required',
         ]);
 
-        $pengeluaran = new Pengeluaran();
+        $pengeluaran                     = new Pengeluaran();
         $pengeluaran->jumlah_pengeluaran = $request->jumlah_pengeluaran;
-        $pengeluaran->deskripsi = $request->deskripsi;
-        $pengeluaran->anggaran_id = $request->anggaran_id;
-        $pengeluaran->kategori_id = $request->kategori_id;
+        $pengeluaran->deskripsi          = $request->deskripsi;
+        $pengeluaran->anggaran_id        = $request->anggaran_id;
+        $pengeluaran->kategori_id        = $request->kategori_id;
+
+        // Ambil data anggaran
+        $anggaran      = Anggaran::find($request->anggaran_id);
+        $sisa_anggaran = $anggaran ? $anggaran->jumlah : 0;
+
+        // Kirim email
+        Mail::to(Auth::user()->email)->send(
+            new PengeluaranMail($request->jumlah_pengeluaran, $request->deskripsi, $sisa_anggaran)
+        );
 
         $pengeluaran->save();
         return redirect()->route('pengeluaran.index')->with('success', 'Data pengeluaran berhasil ditambahkan');

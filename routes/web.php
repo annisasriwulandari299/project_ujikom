@@ -7,6 +7,7 @@ use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\AnggaranController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
@@ -24,6 +25,7 @@ Route::get('/test', function () {
     return view('test');
 });
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard-user', [DashboardController::class, 'index'])->name('user.dashboard');
     Route::resource('kategori', KategoriController::class);
     Route::resource('pemasukan', PemasukanController::class);
     Route::resource('pengeluaran', PengeluaranController::class);

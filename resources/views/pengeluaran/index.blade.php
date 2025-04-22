@@ -7,14 +7,17 @@
         <h4 class="card-title">Table Pengeluaran</h4>
       </div>
       <div class="card-content">
-        @foreach ($pengeluaran as $item)
-        @if ($item->anggaran->jumlah < $item->jumlah_pengeluaran)
-        <div class="alert alert-danger" role="alert">
+      @php $showedAlert = false; @endphp
+@foreach ($pengeluaran as $item)
+    @if ($item->anggaran->jumlah < $item->jumlah_pengeluaran && !$showedAlert)
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="overBudgetAlert">
             <h4 class="alert-heading">Jumlah Pengeluaran Melebihi Anggaran</h4>
             <p>Jumlah Pengeluaran Melebihi Anggaran</p>
         </div>
-        @endif
-        @endforeach
+        @php $showedAlert = true; @endphp
+    @endif
+@endforeach
+
         <div class="card-body">
             <a href="{{  route('pengeluaran.create') }}" type="button" class="btn btn-primary round">Add +</a>
         </div>
@@ -68,4 +71,15 @@
     </div>
   </div>
 </div>
+<script>
+    setTimeout(function () {
+        let alertBox = document.getElementById('overBudgetAlert');
+        if (alertBox) {
+            alertBox.style.transition = 'opacity 0.5s ease';
+            alertBox.style.opacity = '0';
+            setTimeout(() => alertBox.remove(), 500); // Remove after fade
+        }
+    }, 3000);
+</script>
+
 @endsection

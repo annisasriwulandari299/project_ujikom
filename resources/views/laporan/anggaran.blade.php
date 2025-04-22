@@ -15,6 +15,31 @@
                 </div>
 
                 <div class="card-body">
+                    <form method="GET" action="{{ route('laporan.anggaran') }}" class="mb-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="start_date">Tanggal Awal</label>
+                                    <input type="date" class="form-control" id="start_date" name="start_date" value="{{ request('start_date') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="end_date">Tanggal Akhir</label>
+                                    <input type="date" class="form-control" id="end_date" name="end_date" value="{{ request('end_date') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary">Filter</button>
+                                        <a href="{{ route('laporan.anggaran') }}" class="btn btn-secondary">Reset</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead>

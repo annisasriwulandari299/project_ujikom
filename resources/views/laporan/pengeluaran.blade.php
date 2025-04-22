@@ -6,12 +6,26 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h3>Laporan Keuangan</h3>
-                        <a href="{{ route('laporan.pengeluaran-pdf') }}" class="btn btn-primary">
-                            <i class="fas fa-download"></i> Download PDF
-                        </a>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3>Laporan Pengeluaran</h3>
                     </div>
+                    <form action="{{ route('laporan.pengeluaran') }}" method="GET" class="mb-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Dari Tanggal</label>
+                                <input type="date" name="start_date" class="form-control" value="{{ request('start_date') }}">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Sampai Tanggal</label>
+                                <input type="date" name="end_date" class="form-control" value="{{ request('end_date') }}">
+                            </div>
+                            <div class="col-md-4 d-flex align-items-end">
+                                <button type="submit" class="btn btn-success mr-2">Filter</button>
+                                <a href="{{ route('laporan.pengeluaran') }}" class="btn btn-secondary mr-2">Reset</a>
+                                <a href="{{ route('laporan.pengeluaran-pdf') }}" class="btn btn-primary"> Download PDF</a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="card-body">
@@ -22,7 +36,6 @@
                                     <th>No</th>
                                     <th>kategori</th>
                                     <th>Jumlah Pengeluaran</th>
-                                    {{-- <th>Jumlah Anggaran</th> --}}
                                     <th>Tanggal</th>
                                     <th>Keterangan</th>
                                 </tr>
@@ -33,7 +46,6 @@
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $pengeluaran->kategori->nama }}</td>
                                     <td>Rp {{ number_format($pengeluaran->jumlah_pengeluaran, 0, ',', '.') }}</td>
-                                    {{-- <td>Rp {{ number_format($pengeluaran->anggaran->jumlah, 0, ',', '.') }}</td> --}}
                                     <td>{{ \Carbon\Carbon::parse($pengeluaran->created_at)->format('d-m-Y') }}</td>
                                     <td>{{ $pengeluaran->deskripsi }}</td>
                                 </tr>
